@@ -1,0 +1,58 @@
+CSV File Load
+
+features TABLE
+
+CREATE TABLE IF NOT EXISTS public.features
+(
+    id integer NOT NULL,
+    product_id integer,
+    feature text COLLATE pg_catalog."default",
+    value text COLLATE pg_catalog."default",
+    CONSTRAINT "Features_pkey" PRIMARY KEY (id)
+)
+
+\copy features from 'C:\filepath\features.csv' Delimiter ',' CSV Header;
+
+product TABLE
+
+CREATE TABLE IF NOT EXISTS public."Product"
+(
+    id integer NOT NULL,
+    name text COLLATE pg_catalog."default",
+    slogan text COLLATE pg_catalog."default",
+    description text COLLATE pg_catalog."default",
+    category text COLLATE pg_catalog."default",
+    default_price integer,
+    CONSTRAINT "Product_pkey" PRIMARY KEY (id)
+)
+
+\copy product from 'C:\filepath\product.csv' Delimiter ',' CSV Header;
+
+skus TABLE
+
+CREATE TABLE IF NOT EXISTS public.skus
+(
+    id integer NOT NULL,
+    "styleId" integer,
+    size text COLLATE pg_catalog."default",
+    quantity integer,
+    CONSTRAINT "Skus_pkey" PRIMARY KEY (id)
+)
+
+\copy skus from 'C:\filepath\skus.csv' Delimiter ',' CSV Header;
+
+styles TABLE
+
+CREATE TABLE IF NOT EXISTS public.styles
+(
+    id integer NOT NULL,
+    "productId" integer,
+    name text COLLATE pg_catalog."default",
+    sale_price integer,
+    original_price integer,
+    default_style boolean,
+    CONSTRAINT "Styles_pkey" PRIMARY KEY (id)
+)
+
+\copy styles from 'C:\Users\balaj\Downloads\styles.csv' Delimiter ',' CSV Header NU
+LL as 'null';
