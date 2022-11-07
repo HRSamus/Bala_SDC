@@ -54,5 +54,5 @@ CREATE TABLE IF NOT EXISTS public.styles
     CONSTRAINT "Styles_pkey" PRIMARY KEY (id)
 )
 
-\copy styles from 'C:\Users\balaj\Downloads\styles.csv' Delimiter ',' CSV Header NU
+\copy styles from 'C:\filepath\styles.csv' Delimiter ',' CSV Header NU
 LL as 'null';
